@@ -1,8 +1,9 @@
 import React from 'react'
+import "./index.css"
 
 const App = () => {
   return (
-    <div>App</div>
+    <div className='bg-amber-50 '>App</div>
   )
 }
 

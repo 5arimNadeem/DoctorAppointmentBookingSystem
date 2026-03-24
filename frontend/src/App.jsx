@@ -16,7 +16,7 @@ const App = () => {
     <div className='mx-4 sm:mx-[10%]'>
       <Navbar />
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/doctors' element={<Doctors />} />
         {/* what does this does path='/doctors/:speciality'  -> /: what is the purpose of it and how is it used   */}
         <Route path='/doctors/:speciality' element={<Doctors />} />

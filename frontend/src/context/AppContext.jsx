@@ -1,14 +1,17 @@
 import React, { createContext } from 'react'
-import { doctors,assets } from '../assets/assets.js'
+import { doctors, assets } from '../assets/assets.js'
 
 export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
 
+    const currencySymbol = '$'
+
     // what ever we add in value object we can access in any component 
     const value = {
         doctors,
-        assets
+        assets,
+        currencySymbol
     }
 
     return (

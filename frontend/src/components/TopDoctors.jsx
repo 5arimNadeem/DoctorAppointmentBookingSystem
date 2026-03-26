@@ -10,7 +10,7 @@ const TopDoctors = () => {
     const { doctors } = useContext(AppContext);
     return (
         <div className="flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10">
-            <h1 className='text-3xl font-medium'>Our Doctors
+            <h1 className='text-3xl font-medium'>Top Doctors
             </h1>
             <p className='sm:w-1/3 text-center text-sm'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dolor!</p>
             <div className='w-full grid grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-4 gap-y-6 pt-5 px-3 sm:px-0 '>

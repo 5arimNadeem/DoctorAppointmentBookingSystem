@@ -1,20 +1,28 @@
-import React, { useContext } from 'react'
-// we willuse context to import it from now on 
-// import { doctors } from "../assets/assets.js"
+import React, { useContext, useState, useEffect } from 'react'
+import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
-import { AppContext } from '../context/AppContext';
 
-const TopDoctors = () => {
+const RelatedDoctors = ({ speciality, docId }) => {
 
-    const navigate = useNavigate();
-    const { doctors } = useContext(AppContext);
+    const { doctors, assets } = useContext(AppContext)
+    const navigate = useNavigate()
+    const [relDoc, setRelDoc] = useState([])
+
+    useEffect(() => {
+        if (doctors.length > 0 && speciality) {
+            const doctorsData = doctors.filter((doc) => doc.speciality === speciality && doc._id !== docId)
+            setRelDoc(doctorsData)
+        }
+    }, [doctors, speciality, docId])
+
+
     return (
         <div className="flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10">
             <h1 className='text-3xl font-medium'>Top Doctors
             </h1>
             <p className='sm:w-1/3 text-center text-sm'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dolor!</p>
             <div className='w-full grid grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-4 gap-y-6 pt-5 px-3 sm:px-0 '>
-                {doctors.slice(0, 10).map((item, index) => (
+                {relDoc.slice(0, 5).map((item, index) => (
                     <div
                         onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0) }}
                         key={index} className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500">
@@ -37,4 +45,4 @@ const TopDoctors = () => {
     )
 }
 
-export default TopDoctors
+export default RelatedDoctors

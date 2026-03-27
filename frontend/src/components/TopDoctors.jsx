@@ -13,7 +13,7 @@ const TopDoctors = () => {
             <h1 className='text-3xl font-medium'>Top Doctors
             </h1>
             <p className='sm:w-1/3 text-center text-sm'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, dolor!</p>
-            <div className='w-full grid grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-4 gap-y-6 pt-5 px-3 sm:px-0 '>
+            <div className='w-full grid grid-cols-auto gap-4 gap-y-6 pt-5 px-3 sm:px-0'>
                 {doctors.slice(0, 10).map((item, index) => (
                     <div
                         onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0) }}

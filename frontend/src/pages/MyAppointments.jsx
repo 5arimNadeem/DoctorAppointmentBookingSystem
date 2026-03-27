@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../context/AppContext'
 
 const MyAppointments = () => {
+  const { doctors, assets } = useContext(AppContext)
   return (
-    <div>MyAppointments</div>
+    <div>
+      <p className='pb-3 mt-12 font-medium text-zinc-700 border-b'>My Appointments</p>
+      {/* <div key={index}> */}
+      <div>
+        {doctors.slice(0, 4).map((item, index) => (
+          <div className='grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-2 border-b' key={index}>
+            <div >
+              <img className='w-32 bg-indigo-50' src={item.image} alt="" />
+            </div>
+            <div className='flex-1 text-sm text-zinc-600'>
+              <p className='text-neutral-800 font-semibold'>{item.name}</p>
+              <p className='text-neutral-800 font-semibold'>{item.speciality}</p>
+              <p>Address:</p>
+              <p className='text-xs'>{item.address.line1}</p>
+              <p className='text-xs'>{item.address.line2}</p>
+              <p className='text-xs'><span className='text-sm text-neutral-700 font-medium'>Date & Time: </span>25, March, 2026 | 3:07 AM</p>
+            </div>
+            <div></div>
+            <div className='flex flex-col gap-2 justify-end'>
+              <button
+                onClick={() => setIsEdit(false)}
+                className='border border-gray-100 bg-gray-200 text-black px-7 py-3 rounded font-light hidden md:block hover:bg-primary hover:text-black duration-500 transition-all'>Pay Online
+              </button>
+              <button
+                onClick={() => setIsEdit(false)}
+                className='border border-gray-100 bg-gray-200 text-black px-7 py-3 rounded font-light hidden md:block hover:bg-primary hover:text-black duration-500 transition-all'>Cancel Appointment
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 

@@ -9,10 +9,20 @@
         /* --gridTemplateColumns-auto:repeat(auto-fill, minmax(200px, 1fr)) */
 }
 
+.grid-cols-auto {
+    @apply repeat(auto-fill, minmax(200px, 3fr))
+}
+
 .active hr {
     @apply block
 }
 
 ::-webkit-scrollbar {
     @apply hidden
+}
+
+@media (max-width: 740px) {
+    .active p{
+        @apply text-white bg-primary
+    }
 }

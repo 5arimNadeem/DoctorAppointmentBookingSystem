@@ -16,7 +16,7 @@ const TopDoctors = () => {
             <div className='w-full grid grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-4 gap-y-6 pt-5 px-3 sm:px-0 '>
                 {doctors.slice(0, 10).map((item, index) => (
                     <div
-                        onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0) }}
+                        onClick={() => navigate(`/appointment/${item._id}`)}
                         key={index} className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500">
                         <img className='bg-blue-50' src={item.image} alt="" />
                         <div className="p-4">

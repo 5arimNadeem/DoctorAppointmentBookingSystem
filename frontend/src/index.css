@@ -9,9 +9,9 @@
         /* --gridTemplateColumns-auto:repeat(auto-fill, minmax(200px, 1fr)) */
 }
 
-.grid-cols-auto {
+/* .grid-cols-auto {
     @apply repeat(auto-fill, minmax(200px, 3fr))
-}
+} */
 
 .active hr {
     @apply block

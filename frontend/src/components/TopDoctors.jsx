@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 // we willuse context to import it from now on 
 // import { doctors } from "../assets/assets.js"
 import { useNavigate } from 'react-router-dom'
-import { AppContext } from '../context/AppContext';
+import { DoctorContext } from '../context/DoctorContext';
 
 const TopDoctors = () => {
 
     const navigate = useNavigate();
-    const { doctors } = useContext(AppContext);
+    const { doctors } = useContext(DoctorContext);
     return (
         <div className="flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10">
             <h1 className='text-3xl font-medium'>Top Doctors

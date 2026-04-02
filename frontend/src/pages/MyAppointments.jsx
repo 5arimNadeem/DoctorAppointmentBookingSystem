@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { AppContext } from '../context/AppContext'
+import { DoctorContext } from '../context/DoctorContext'
 
 const MyAppointments = () => {
-  const { doctors, assets } = useContext(AppContext)
+  const { doctors, assets } = useContext(DoctorContext)
   return (
     <div>
       <p className='pb-3 mt-12 font-medium text-zinc-700 border-b'>My Appointments</p>

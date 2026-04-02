@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { AppContext } from '../context/AppContext'
+import { DoctorContext } from '../context/DoctorContext'
 
 const MyProfile = () => {
-  const { assets } = useContext(AppContext)
+  const { assets } = useContext(DoctorContext)
 
   // state variables 
 

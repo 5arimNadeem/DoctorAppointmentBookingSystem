@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { DoctorContext } from '../context/DoctorContext'
+// import { DoctorContext } from '../context/DoctorContext'
 import RelatedDoctors from '../components/RelatedDoctors'
+import { AppContext } from '../context/AppContext'
 // import { assets } from '../assets/assets'
 
 const Appointment = () => {
     const { docId } = useParams()
-    const { doctors, assets, currencySymbol } = useContext(DoctorContext)
+    const { doctors, assets, currencySymbol } = useContext(AppContext)
     const [docInfo, setDocInfo] = useState(null)
     const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 

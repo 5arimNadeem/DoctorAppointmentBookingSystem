@@ -1,9 +1,13 @@
-import React, { createContext } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { doctors, assets } from '../assets/assets.js'
+import axios from "axios"
+import { toast } from "react-toastify";
 
-export const DoctorContext = createContext()
+export const AppContext = createContext()
 
-const DoctorContextProvider = (props) => {
+const AppContextProvider = (props) => {
+    const [doctors, setDoctors] = useState([])
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
 
     const currencySymbol = '$'
 
@@ -11,14 +15,34 @@ const DoctorContextProvider = (props) => {
     const value = {
         doctors,
         assets,
-        currencySymbol
+        currencySymbol,
+        backendUrl
     }
 
+    const getDoctorsData = async () => {
+        try {
+            const { data } = await axios.get(backendUrl + '/api/doctor/list')
+            if (data.success) {
+                setDoctors(data.doctors)
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+    }
+
+    useEffect(() => {
+        getDoctorsData()
+    }, []);
+
     return (
-        <DoctorContext.Provider value={value}>
+        <AppContext.Provider value={value}>
             {props.children}
-        </DoctorContext.Provider>
+        </AppContext.Provider>
     )
 }
 
-export default DoctorContextProvider
+export default AppContextProvider
+

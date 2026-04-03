@@ -24,16 +24,16 @@ const addDoctor = async (req, res) => {
     const imageFile = req.file;
 
     console.log({
-        email,
-        password,
-        speciality,
-        degree,
-        experience,
-        // image,
-        about,
-        // avaliable,
-        fees,
-        address
+      email,
+      password,
+      speciality,
+      degree,
+      experience,
+      // image,
+      about,
+      // avaliable,
+      fees,
+      address
     }, imageFile);
 
     // check for data to add doctor
@@ -120,4 +120,17 @@ const loginAdmin = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
-export { addDoctor, loginAdmin };
+
+// api controller func to get all doctors list for admin panel 
+
+const allDoctors = async (req, res) => {
+  try {
+    // this -select removes the passwrod property from the responce 
+    const doctors = await doctorModel.find({}).select('-password');
+    res.json({ success: true, doctors })
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+}
+export { addDoctor, loginAdmin, allDoctors };

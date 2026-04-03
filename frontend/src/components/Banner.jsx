@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { DoctorContext } from '../context/DoctorContext';
+// import { DoctorContext } from '../context/DoctorContext';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const Banner = () => {
-  const { assets } = useContext(DoctorContext);
+  const { assets } = useContext(AppContext);
   const navigate = useNavigate()
   return (
     <div className='flex bg-primary px-6 rounded-lg sm:px-10 md:px-14 lg:px-12 my-20 md:mx-10'>

@@ -295,7 +295,7 @@ export const doctors = [
             line1: '37th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
         }
-    },
+},
     {
         _id: 'doc16',
         name: 'Dr. Jason Hill',

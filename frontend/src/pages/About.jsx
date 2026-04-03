@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
-import { DoctorContext } from '../context/DoctorContext'
+// import { DoctorContext } from '../context/DoctorContext'
+import { AppContext } from '../context/AppContext'
 
 const About = () => {
-  const { assets } = useContext(DoctorContext)
+  const { assets } = useContext(AppContext)
   return (
     <div>
       <div className='text-center text-2xl pt-10 text-gray-500'>

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { DoctorContext } from '../context/DoctorContext'
+import { AppContext } from '../context/AppContext.jsx'
 
 const Footer = () => {
-    const { assets } = useContext(DoctorContext)
+    const { assets } = useContext(AppContext)
     return (
         <div className='md:mx-10'>
             <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">

@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom'
 // import { DoctorContext } from '../context/DoctorContext'
 import RelatedDoctors from '../components/RelatedDoctors'
 import { AppContext } from '../context/AppContext'
+import { toast } from 'react-toastify'
 // import { assets } from '../assets/assets'
 
 const Appointment = () => {
     const { docId } = useParams()
-    const { doctors, assets, currencySymbol } = useContext(AppContext)
+    const { doctors, assets, currencySymbol, backendUrl, token, getDoctorData, navigate } = useContext(AppContext)
     const [docInfo, setDocInfo] = useState(null)
     const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
@@ -79,6 +80,13 @@ const Appointment = () => {
         }
     }
 
+    const bookAppointment = async () => {
+        if (!token) {
+            toast.warn("login to book Appointment")
+            
+            return navigate('/login')
+        }
+    }
     useEffect(() => {
         fetchDocInfo()
     }, [doctors, docId])
@@ -149,7 +157,8 @@ const Appointment = () => {
                     ))}
                 </div>
                 <button
-                    // onClick={() => navigate('/login')}
+
+                    onClick={bookAppointment}
                     className='bg-primary text-white px-14 py-3 rounded-full font-light my-6'>Book an Appointment
                 </button>
             </div>
